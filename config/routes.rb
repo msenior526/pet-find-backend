@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :pets, only: [:create]
+  resources :pets, only: [:index, :create]
 end

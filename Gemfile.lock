@@ -74,6 +74,7 @@ GEM
       activesupport
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    dotenv (2.7.6)
     erubi (1.10.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
@@ -171,6 +172,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.4)
   byebug
+  dotenv
   faker
   image_processing (~> 1.2)
   jwt

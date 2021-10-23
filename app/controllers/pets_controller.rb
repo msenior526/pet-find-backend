@@ -11,7 +11,6 @@ class PetsController < ApplicationController
         if @pet.valid? 
             render json: { pet: PetSerializer.new(@pet) }, status: :created
         else
-            byebug
             render json: { error: 'failed to create pet'}, status: :unprocessable_entity
         end
     end

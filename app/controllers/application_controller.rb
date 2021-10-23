@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
+    @secret = ENV['SECRET']
     def encode_token(payload)
-        JWT.encode(payload, ENV['SECRET'])
+        JWT.encode(payload, @secret)
     end
 
     def decode_token(token)

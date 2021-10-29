@@ -15,6 +15,15 @@ class PetsController < ApplicationController
             render json: { error: 'failed to create pet'}, status: :unprocessable_entity
         end
     end
+
+    def delete
+        @pet = Pet.find_by(id: params[:id])
+        if @pet.destroy
+            render json: {message: "Successfully destroyed PET!"}
+        else
+            render json: @pet.errors, status: :unprocessable_entity
+        end
+    end
     
     private
 

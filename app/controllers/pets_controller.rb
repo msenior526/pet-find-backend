@@ -16,7 +16,7 @@ class PetsController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
         @pet = Pet.find_by(id: params[:id])
         if @pet.destroy
             render json: {message: "Successfully destroyed PET!"}

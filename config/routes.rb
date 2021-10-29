@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get '/profile', to: 'users#profile'
     end
   end
-
+  
+  resources :saved_pets, only: [:index]
   resources :pets, only: [:index, :create, :destroy]
 end

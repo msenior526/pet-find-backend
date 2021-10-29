@@ -7,9 +7,9 @@ class PetsController < ApplicationController
     end
 
     def create
-        @pet = Pet.create(pet_params)
+        @pet = current_user.pets.build(pet_params)
 
-        if @pet.valid? 
+        if @pet.save 
             render json: { pet: PetSerializer.new(@pet) }, status: :created
         else
             render json: { error: 'failed to create pet'}, status: :unprocessable_entity

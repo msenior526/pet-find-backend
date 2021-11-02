@@ -1,3 +1,3 @@
 class SavedPetSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :pet
 end

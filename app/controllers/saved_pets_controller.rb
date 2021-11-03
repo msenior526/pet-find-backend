@@ -5,12 +5,13 @@ class SavedPetsController < ApplicationController
     end
 
     def create
-        current_user.pets_saved.build(saved_pet_params)
+        @saved_pets = current_user.pets_saved.build(saved_pet_params)
+        render json: @saved_pets
     end
 
     private
 
     def saved_pet_params
-        params.permit(:pet_id)
+        params.permit!(:pet_id)
     end
 end

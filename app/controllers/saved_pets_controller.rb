@@ -7,4 +7,10 @@ class SavedPetsController < ApplicationController
     def create
         current_user.pets_saved.build(saved_pet_params)
     end
+
+    private
+
+    def saved_pet_params
+        params.permit(:pet_id)
+    end
 end

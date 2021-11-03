@@ -3,4 +3,8 @@ class SavedPetsController < ApplicationController
         @saved_pets = current_user.saved_pets
         render json: @saved_pets
     end
+
+    def create
+        current_user.pets_saved.build(saved_pet_params)
+    end
 end

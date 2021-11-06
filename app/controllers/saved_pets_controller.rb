@@ -1,6 +1,6 @@
 class SavedPetsController < ApplicationController
     def index
-        @saved_pets = current_user.saved_pets
+        @saved_pets = current_user.pets_saved
         render json: @saved_pets
     end
 

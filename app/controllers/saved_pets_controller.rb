@@ -15,6 +15,16 @@ class SavedPetsController < ApplicationController
         end
     end
 
+    def destroy
+        @saved_pet = SavedPet.find_by(id: params[:id])
+
+        if @saved_pet.destroy
+            render json: {message: "Successfully destroyed todo!"}
+        else
+            render json: @saved_pet.errors, status: :unprocessable_entity
+        end
+    end
+
     private
 
     def saved_pet_params

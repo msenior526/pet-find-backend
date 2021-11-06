@@ -5,13 +5,19 @@ class SavedPetsController < ApplicationController
     end
 
     def create
-        @saved_pets = current_user.pets_saved.build(saved_pet_params)
-        render json: @saved_pets
+        # byebug
+        @saved_pet = current_user.saved_pets.build(saved_pet_params)
+        if @saved_pet.save
+            render json: { pet: SavedPetSerializer.new(@saved_pet) }, status: :created
+        else
+            byebug
+            render json: { error: 'failed to save pet'}, status: :unprocessable_entity
+        end
     end
 
     private
 
     def saved_pet_params
-        params.permit!(:pet_id)
+        params.require(:saved_pet).permit(:pet_id)
     end
 end
